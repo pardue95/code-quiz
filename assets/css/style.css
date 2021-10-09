@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* header.div.highscore {
+  text-align: start;
+}
+
+header.div.timer {
+  text-align: right;
+  position: absolute;
+} */
+
+div.container.start {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
