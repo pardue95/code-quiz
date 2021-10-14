@@ -31,3 +31,27 @@ var questions = [
 
 var score = 0;
 var questionIndex = 0;
+
+var startGame = document.querySelector("#start-game")
+
+function unhideQuiz() {
+    var x = document.getElementById("wrapper");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+function playQuiz ()
+{
+
+
+}
+
+
+startGame.addEventListener("click", function() {
+    console.log("hello")
+    unhideQuiz()
+});
+
