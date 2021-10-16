@@ -1,3 +1,4 @@
+
 // Array and Object of quiz questions
 var score = 0;
 var questionIndex = 0;
@@ -16,11 +17,33 @@ var choice3 = document.getElementById("btn3");
 
 var answerCheck = document.getElementById("answerCheck");
 
-var linebreak = (document.getElementById("linebreak").style.display = "none");
+// var linebreak = (document.getElementById("linebreak").style.display = "none");
+var highScores = (document.getElementById("highScores").style.display = "none");
+// var quizQuestion = document.getElementById("quiz-question").style.display = "none";
 
 function unhideQuiz() {
 	var x = document.getElementById("wrapper");
 	document.getElementById("quiz-question").style.display = "block";
+	if (x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+}
+
+function hideQuiz() {
+    var x = document.getElementById("wrapper");
+	document.getElementById("quiz-question").style.display = "none";
+	if (x.style.display === "block") {
+		x.style.display = "none";
+	} else {
+		x.style.display = "block";
+	}
+}
+
+function unhideHighScores() {
+	var x = document.getElementById("wrapper");
+	document.getElementById("highScores").style.display = "block";
 	if (x.style.display === "none") {
 		x.style.display = "block";
 	} else {
@@ -84,9 +107,10 @@ function choose3() {
 }
 
 function gameOver() {
+    hideQuiz()
 	console.log(quizQuestion)
 	summary.style.display = "block";
-	quizQuestion.style.diplay = "none";
+	// quizQuestion.style.diplay = "none";
 	wrapper.style.display = "none";
 	timeLeft.style.display = "none";
 	//    timesUp.style.display = "block";
@@ -94,6 +118,50 @@ function gameOver() {
 	// show final score
 	finalScore.textContent = correctAns;
 }
+
+function storeHighScores(event){
+    event.preventDefault();
+
+    if (initials.value === "") {
+        alert("Enter your initials")
+        return;
+    }
+
+    summary.style.display = "none";
+	quizQuestion.style.diplay = "none";
+	wrapper.style.display = "none";
+	timeLeft.style.display = "none";
+    // highScores.style.display = "block"
+    hideQuiz()
+    unhideHighScores()
+    // store score in localStorage
+
+    var savedHighScores = localStorage.getItem("high scores")
+    var scoresArr;
+
+    if (savedHighScores === null) {
+        scoresArr = []
+    } else {
+        scoresArr = JSON.parse(savedHighScores)
+    }
+
+    var playerScore = {
+        initials: initials.value,
+        score: finalScore.textContent
+    };
+console.log(playerScore)
+    scoresArr.push(playerScore)
+   
+
+
+}
+
+submitInitials.addEventListener("click", function(event){ 
+    storeHighScores(event);
+});
+
+
+
 
 ///Function that runs the game
 startGame.addEventListener("click", function () {
@@ -117,7 +185,11 @@ startGame.addEventListener("click", function () {
 	}, 1000);
 
 	nextQuestion();
+
+
 });
+
+
 ////Question bank
 var questions = [{
 		question: "Which built-in method calls a function for each element in the array?",

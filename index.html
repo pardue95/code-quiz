@@ -1,50 +1,68 @@
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Code Quiz Challenge</title>
-        <link rel="stylesheet" href="assets\css\style.css" />
-    </head>
-    <body>
-        <header>
-            <a href="HighScores.html" class="high-score" id="view-high-scores">View high scores</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Quiz Challenge</title>
+    <link rel="stylesheet" href="assets\css\style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="HighScores.html" class="high-score" id="view-high-scores"
+        >View high scores</a
+      >
 
-            <h4 class="timer">Time:<span id="timer">75 </span></h4>
-        </header>
+      <h4 class="timer">Time:<span id="timer">75 </span></h4>
+    </header>
 
-        <section id="wrapper">
-            <div class="container start">
-                <h1>Coding Quiz Challenge</h1>
-                <p>Try to answer the following code-related questions within the time limit. Correct answers are worth 7 points! Keep in mind that incorrect answers will penalize your score by 2 points and your time by 3 seconds!</p>
-                <button class="btn startend" id="start-game">Start Quiz</button>
-            </div>
-        </section>
-        <!--quiz section  -->
-        <section id="quiz-question" hidden>
-            <p id="questionTitle"></p>
-            <p><button id="btn0"></button></p>
-            <p><button id="btn1"></button></p>
-            <p><button id="btn2"></button></p>
-            <p><button id="btn3"></button></p>
-            <hr id="linebreak" hidden />
-            <p id="answerCheck" hidden></p>
-        </section>
+    <section id="wrapper">
+      <div class="container start">
+        <h1>Coding Quiz Challenge</h1>
+        <p>
+          Try to answer the following code-related questions within the time
+          limit. Correct answers are worth 7 points! Keep in mind that incorrect
+          answers will penalize your score by 2 points and your time by 3
+          seconds!
+        </p>
+        <button class="btn startend" id="start-game">Start Quiz</button>
+      </div>
+    </section>
+    <!--quiz section  -->
+    <section id="quiz-question" hidden>
+      <p id="questionTitle"></p>
+      <p><button id="btn0"></button></p>
+      <p><button id="btn1"></button></p>
+      <p><button id="btn2"></button></p>
+      <p><button id="btn3"></button></p>
+      <hr id="linebreak" hidden />
+      <p id="answerCheck" hidden></p>
+    </section>
 
-        <!-- score section -->
+    <!-- score section -->
 
-        <section id="summary" hidden class="summary">
-            <h2>ALL DONE!</h2>
-            <p>Your final score is <span id="finalScore"></span></p>
-            <form>
-                <p>Enter initials: <input type="text" id="initials" /> <button type="submit" id="submitInitials">Submit</button></p>
-            </form>
-            <p></p>
-        </section>
+    <section id="summary" hidden class="summary">
+      <h2>ALL DONE!</h2>
+      <p>Your final score is <span id="finalScore"></span></p>
+      <form>
+        <p>
+          Enter initials: <input type="text" id="initials" />
+          <button type="submit" id="submitInitials">Submit</button>
+        </p>
+      </form>
+      <p></p>
+    </section>
 
+    <!--   High Scores-->
 
-    
+    <section id="highScores">
+        <h2>High Scores</h2>
+        <div id="listHighScores"></div>
+        <p>
+            <button type="submit" id="goBackBtn">Go Back</button>
+           <button type="submit" id="clearHighScoresBtn">Clear High Scores</button>
+       </p>
+   </section>
 
-        <script src="assets\js\script.js"></script>
-    </body>
+    <script src="assets\js\script.js"></script>
+  </body>
 </html>
