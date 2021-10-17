@@ -17,8 +17,6 @@ header {
   height: 500px;
 }
 
-
-
 div.container.start {
   display: flex;
   flex-wrap: wrap;
@@ -33,13 +31,11 @@ div.container.start {
   font-size: 20px;
   color: white;
 }
-#questionsDiv {
+#quiz-question {
   margin: 20px;
+  background: #daa1d3;
 }
 
-#currentTime {
-  float: right;
-}
 
 button {
   background-color: purple;
@@ -50,9 +46,6 @@ button {
   top: 30%;
   text-align: center;
 }
-
-
-
 
 button#start-game {
   background-color: purple;
@@ -116,36 +109,3 @@ textarea {
   font-size: 20px;
   color: white;
 }
-
-label {
-  margin-right: 10px;
-}
-input {
-  margin-bottom: 20px;
-  width: 50%;
-  border: 1px solid lightgray;
-}
-
-/* h1 {
-  text-align: center;
-}
-
-h1.highscore {
-  text-align: left;
-}
-
-li {
-  background-color: purple;
-  margin-top: 10px;
-  padding: 5px 15px;
-  width: 80%;
-  font-size: 18px;
-  color: white;
-}
-
-#createDiv {
-  margin-top: 20px;
-  border-top: 1px solid lightgray;
-} */
-
-
