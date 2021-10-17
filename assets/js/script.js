@@ -16,6 +16,7 @@ var choice2 = document.getElementById("btn2");
 var choice3 = document.getElementById("btn3");
 
 var answerCheck = document.getElementById("answerCheck");
+var listOfHighScores = document.getElementById("listOfHighScores");
 
 // var linebreak = (document.getElementById("linebreak").style.display = "none");
 var highScores = (document.getElementById("highScores").style.display = "none");
@@ -89,7 +90,7 @@ function checkAnswer(answer) {
 		gameOver();
 	}
 }
-
+// functions to check anwer
 function choose0() {
 	checkAnswer(0);
 }
@@ -113,7 +114,7 @@ function gameOver() {
 	// quizQuestion.style.diplay = "none";
 	wrapper.style.display = "none";
 	timeLeft.style.display = "none";
-	//    timesUp.style.display = "block";
+
 
 	// show final score
 	finalScore.textContent = correctAns;
@@ -152,7 +153,34 @@ function storeHighScores(event){
 console.log(playerScore)
     scoresArr.push(playerScore)
    
+ var scoresArrStr = JSON.stringify(scoresArr);
+ localStorage.setItem("high scores", scoresArrStr);
 
+ displayHighScores()
+
+}
+
+function displayHighScores() {
+    summary.style.display = "none";
+	quizQuestion.style.diplay = "none";
+	wrapper.style.display = "none";
+	timeLeft.style.display = "none";
+    // highScores.style.display = "block"
+    hideQuiz()
+
+    var savedHighScores = localStorage.getItem("high scores");
+
+    if (savedHighScores === null) {
+        return;
+    }
+
+    var storedHighScores = JSON.parse(savedHighScores)
+
+    for (var i = 0; i < storedHighScores.length; i++) {
+        var newPlayerScore = document.createElement("p");
+        newPlayerScore.innerHTML = storeHighScores[i].initials + ": " + storeHighScores[i].score;
+        l
+    }
 
 }
 
@@ -160,7 +188,11 @@ submitInitials.addEventListener("click", function(event){
     storeHighScores(event);
 });
 
-
+goBackBtn.addEventListener("click", function() {
+    
+    wrapper.style.display = "block";
+    document.getElementById("highScores").style.display = "none";
+})
 
 
 ///Function that runs the game
