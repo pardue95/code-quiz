@@ -19,7 +19,7 @@ var answerCheck = document.getElementById("answerCheck");
 var listOfHighScores = document.getElementById("listOfHighScores");
 
 // var linebreak = (document.getElementById("linebreak").style.display = "none");
-var highScores = (document.getElementById("highScores").style.display = "none");
+var highScores = document.getElementById("highScores").style.display = "none";
 // var quizQuestion = document.getElementById("quiz-question").style.display = "none";
 
 function unhideQuiz() {
@@ -49,8 +49,18 @@ function unhideHighScores() {
 		x.style.display = "block";
 	} else {
 		x.style.display = "none";
+	};
+};
+
+function hideHighScores() {
+	var x = document.getElementById("highScores");
+	document.getElementById("highScores").style.display = "none";
+	if (x.style.display === "block") {
+		x.style.display = "none";
+	} else {
+		x.style.display = "block";
 	}
-}
+};
 
 
 function nextQuestion() {
@@ -173,15 +183,22 @@ function displayHighScores() {
     if (savedHighScores === null) {
         return;
     }
-
+console.log(JSON.parse(savedHighScores))
     var storedHighScores = JSON.parse(savedHighScores)
 
     for (var i = 0; i < storedHighScores.length; i++) {
         var newPlayerScore = document.createElement("p");
-        newPlayerScore.innerHTML = storeHighScores[i].initials + ": " + storeHighScores[i].score;
-        l
-    }
-
+        newPlayerScore.innerHTML = storedHighScores[i].initials + ": " + storedHighScores[i].score;
+         };
+		// var highScores = (document.getElementById("highScores").style.display = 'none')
+		//  highScores.style.display = "none"
+	//  hideHighScores()
+		 hideQuiz();
+score = 0;
+ questionIndex = 0;
+ correctAns = 0;
+ time = 75;
+return;
 }
 
 submitInitials.addEventListener("click", function(event){ 
@@ -193,6 +210,18 @@ goBackBtn.addEventListener("click", function() {
     wrapper.style.display = "block";
     document.getElementById("highScores").style.display = "none";
 })
+
+function clearHighScores() {
+	// Clear localStorage items 
+	localStorage.clear();
+  }
+
+  clearHighScoresBtn.addEventListener("click",function () {
+	  clearHighScores();
+	  wrapper.style.display = "block";
+    document.getElementById("highScores").style.display = "none";
+  }
+  )
 
 
 ///Function that runs the game
