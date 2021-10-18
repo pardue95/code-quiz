@@ -16,10 +16,13 @@ var choice3 = document.getElementById("btn3");
 
 var answerCheck = document.getElementById("answerCheck");
 var listHighScores = document.getElementById("listHighScores");
+var highScoreBtn = document.getElementById("highScoreBtn")
 
 // var linebreak = (document.getElementById("linebreak").style.display = "none");
 var highScores = document.getElementById("highScores").style.display = "none";
 // var quizQuestion = document.getElementById("quiz-question").style.display = "none";
+
+
 
 function unhideQuiz() {
     var x = document.getElementById("wrapper");
@@ -42,7 +45,7 @@ function hideQuiz() {
 }
 
 function unhideHighScores() {
-    var x = document.getElementById("wrapper");
+    var x = document.getElementById("quiz-question");
     document.getElementById("highScores").style.display = "block";
     if (x.style.display === "none") {
         x.style.display = "block";
@@ -98,27 +101,24 @@ function checkAnswer(answer) {
         // if no more question, run game over function
         gameOver();
     }
-}
+};
 // functions to check anwer
 function choose0() {
     checkAnswer(0);
-}
-
+};
 function choose1() {
-    checkAnswer(1);
+    ;checkAnswer(1);
 }
-
 function choose2() {
     checkAnswer(2);
-}
-
+};
 function choose3() {
     checkAnswer(3);
-}
+};
 
 function gameOver() {
     hideQuiz()
-    console.log(quizQuestion)
+    // console.log(quizQuestion)
     summary.style.display = "block";
     // quizQuestion.style.diplay = "none";
     wrapper.style.display = "none";
@@ -193,12 +193,10 @@ function displayHighScores() {
     // var highScores = (document.getElementById("highScores").style.display = 'none')
     //  highScores.style.display = "none"
     //  hideHighScores()
+	questionIndex = 0
     hideQuiz();
-    score = 0;
-    questionIndex = 0;
-    correctAns = 0;
-    time = 75;
-    return;
+    return 
+	
 }
 
 submitInitials.addEventListener("click", function(event) {
@@ -221,8 +219,18 @@ clearHighScoresBtn.addEventListener("click", function() {
     wrapper.style.display = "block";
     document.getElementById("highScores").style.display = "none";
 })
-
-
+highScoreBtn.addEventListener("click", function(){
+	// var savedHighScores = localStorage.getItem("high scores");
+	// var storedHighScores = JSON.parse(savedHighScores)
+	// unhideHighScores()
+	// console.log(storedHighScores)
+    // for (var i = 0; i < storedHighScores.length; i++) {
+    //     var newPlayerScore = document.createElement("p");
+    //     newPlayerScore.innerHTML = storedHighScores[i].initials + ": " + storedHighScores[i].score;
+    //     listHighScores.appendChild(newPlayerScore);
+    // };
+	unhideHighScores()
+})
 ///Function that runs the game
 startGame.addEventListener("click", function() {
 
